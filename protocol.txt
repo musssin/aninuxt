@@ -2,4 +2,7 @@
       СОБРАНИЯ УЧРЕДИТЕЛЕЙ<br />
       numberDeal
       Товарищества с ограниченной ответственностью «SCI Company»
+      `+ this.numberDeal + `,
+      ` + numberDeal + `,
+      ` + {{numberDeal}} + `
     </div>
