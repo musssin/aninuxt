@@ -1,5 +1,6 @@
 <div class="ct_title_block"><div class="ct_title">ПРОТОКОЛ №<span class="ct_title_num">{{numberDeal}}</span><br />
       СОБРАНИЯ УЧРЕДИТЕЛЕЙ<br />
+      numberDeal
       Товарищества с ограниченной ответственностью «SCI Company»
     </div>
     </div><div class="ct_article mb_8">
