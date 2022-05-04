@@ -7,7 +7,9 @@
       {"key":"members","key_name":"Участники","type":"array"},
       {"key":"fio","key_name":"ФИО"}
       ],
-      "company_bin":"180940006978"
+      "company_bin":"180940006978",
+      "requireCompanyBlock": false,
+      "requireClientBlock": false
     }~
     <div id="contract_template_lg" class="contract_template">
       <div class="ct_title_block">
