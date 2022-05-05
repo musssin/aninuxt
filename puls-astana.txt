@@ -1,5 +1,16 @@
-<div class="contract_block_item" :class="{ open: isActiveContract }">
-    <div @click="toggleContract" class="btn_contract_toggle ">Договор</div>
+~{"keys":
+      [
+      {"key":"numberDeal","key_name":"Номер договора"},
+      {"key":"questions","key_name":"Вопросы","type":"array"},
+      {"key":"solutions","key_name":"Решения","type":"array"},
+      {"key":"membersCount","key_name":"Количество участников"},
+      {"key":"members","key_name":"Участники","type":"array"},
+      {"key":"fio","key_name":"ФИО"}
+      ],
+      "company_bin":"180940006978",
+      "requireCompanyBlock": false,
+      "requireClientBlock": false
+    }~
     <div id="contract_template_lg" class="contract_template">
       <div class="ct_title_block">
         <div class="ct_title">Договор  аренды <span class="ct_title_num">{{numberDeal ? numberDeal : 'XXX'}}</span>
@@ -133,4 +144,3 @@
           </div>
         </div>
       </div>
-    </div>
