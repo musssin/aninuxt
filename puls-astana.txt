@@ -1,35 +1,36 @@
 ~{"keys":
       [
-      {"key":"numberDeal","key_name":"Номер договора"},
-      {"key":"questions","key_name":"Вопросы","type":"array"},
-      {"key":"solutions","key_name":"Решения","type":"array"},
-      {"key":"membersCount","key_name":"Количество участников"},
-      {"key":"members","key_name":"Участники","type":"array"},
-      {"key":"fio","key_name":"ФИО"}
+      {"key":"clientType","key_name":"Тип клиента","type":"radio", "options": 
+        [
+        {"value":"TOO", "label":"TOO",    "text": "ТОО <span class='ct_data'>{{clientName}}</span>, в лице Директора <span class='ct_data'>{{clientDirectorFIO}}</span>"}, 
+        {"value":"IP",  "label":"ИП",     "text": "ИП <span class='ct_data'>{{clientName}}</span>, в лице Директора <span class='ct_data'>{{clientDirectorFIO}}</span>"},
+        {"value":"Fiz", "label":"Физ.л.", "text": "гр. <span class='ct_data'>{{clientName}}</span>"}
+        ]},
+      {"key":"numberDeal","key_name":"Номер договора", "type":"text"},
+      {"key":"flat","key_name":"Номер контейнера", "type":"text"},
+      {"key":"street","key_name":"Адрес контейнера", "type":"text"},
+      {"key":"prepayment","key_name":"Размер арендной платы", "type":"text"}
       ],
-      "company_bin":"180940006978",
       "requireCompanyBlock": false,
-      "requireClientBlock": false
+      "requireClientBlock": true
     }~
     <div id="contract_template_lg" class="contract_template">
       <div class="ct_title_block">
-        <div class="ct_title">Договор  аренды <span class="ct_title_num">{{numberDeal ? numberDeal : 'XXX'}}</span>
+        <div class="ct_title">Договор  аренды <span class="ct_title_num">{{numberDeal}}</scrip></span>
         </div>
       </div>
 
       <div class="ct_block_flex">
         <div class="ct_text">г. Нур Султан</div>
-        <div class="ct_date">{{ new Date(currentDate).toLocaleDateString() === 'Invalid Date' ? currentDate : new Date(currentDate).toLocaleDateString() }}</div>
+        <div class="ct_date">{{currentDate}}</div>
       </div>
 
       <div class="ct_article mb_8">
         <div class="ct_article">
-          ИП<span class="ct_data"> {{'«Пульс Астана»'}}</span> именуемое  в дальнейшем «Арендодатель», в лице директора <span class="ct_data"> {{'Каримовой А.Ж.'}}</span>
-          действующей на основании Свидетельства о государственной регистрации индивидуального предпринимателя <span class="ct_data">{{'№KZ18TWQ00534774 '}}</span> от  <span class="ct_data">{{'04.10.2018'}} г.</span>,
+          ИП<span class="ct_data">«Пульс Астана»'</span> именуемое  в дальнейшем «Арендодатель», в лице директора <span class="ct_data"> 'Каримовой А.Ж.'</span>
+          действующей на основании Свидетельства о государственной регистрации индивидуального предпринимателя <span class="ct_data">'№KZ18TWQ00534774 '</span> от  <span class="ct_data">04.10.2018 г.</span>,
           с одной стороны и
-          <span v-if="customerType==='Fiz'">гр. <span class="ct_data">{{customerName?customerName : '______'}}</span></span>
-          <span v-if="customerType==='TOO'">ТОО <span class="ct_data">{{customerName?customerName : '______'}}</span>, в лице Директора <span class="ct_data">{{ customerDirectorFIO }}</span></span>
-          <span v-if="customerType==='IP'">ИП <span class="ct_data">{{customerName?customerName : '______'}}</span>, в лице Директора <span class="ct_data">{{ customerDirectorFIO }}</span></span>
+          {{clientTypeRadioText}}
            именуемый в дальнейшем «Арендатор», заключили настоящий договор о нижеследующем:
         </div>
       </div>
@@ -39,12 +40,12 @@
       <div class="ct_article">
         1.1. «Арендодатель» обязуется предоставить во временное пользование, а «Арендатор»
         принять, оплатить пользование и своевременно возвратить имущество , указанно в.п. 1.2 .Договора<br/>
-        1.2. «Арендодатель» сдает «Арендатору» в аренду контейнер №:<span class="ct_data">{{ flat?flat:'____'}}</span>  в количестве 1 единицы, находящийся по адресу:
-        г. Нур-Султан, <!--переулок--> <span class="ct_data">{{street?street:'________'}} <!-- {{house?house: '___'}}-->
+        1.2. «Арендодатель» сдает «Арендатору» в аренду контейнер №:<span class="ct_data">{{flat}}</span>  в количестве 1 единицы, находящийся по адресу:
+        г. Нур-Султан, <!--переулок--> <span class="ct_data">{{street}} <!-- {{house}}-->
           </span> (далее  именуемое  Помещение.)   <br/>
         1.3. Арендатор обязуется возвратить Помещение в исправном состоянии с учетом нормального износа. Расходы, связанные с арендованным Имуществом, полностью возлагаются на Арендатора<br/>
         1.4. Арендодатель гарантируем что будет распоряжаться арендуемый объектом, указанным в пункте 1.1 настоящего договора, начинается с момента его подписания.<br/>
-        1.5. Размер арендной платы за календарный месяц за арендуемое помещение составляет  <span class="ct_data">{{prepayment?prepayment: '___'}} тнг</span>. Календарный месяц считать с 01 по 31 число.<br/>
+        1.5. Размер арендной платы за календарный месяц за арендуемое помещение составляет  <span class="ct_data">{{prepayment}} тнг</span>. Календарный месяц считать с 01 по 31 число.<br/>
         </div>
       <div class="ct_article">
         <span class="ct_article_b">2.РАСЧЕТЫ</span>
@@ -67,7 +68,7 @@
         3.5. В арендную плату не входят оплата коммунальных услуг за пользование жильем, оплата которых производится Арендатором отдельно на основании выставленных счетов Арендодателя.<br/>
         <strong>3.3. Арендатор обязан:</strong><br/>
         3.3.1Соблюдать в помещении и на прилегающей территории чистоту в соответствии с требованиями органов Госсанэпиднадзора, пожарной безопасности и экологического контроля, Управления экологии, установленные для организации данного вида деятельности, а также нести ответственность за выполнение этих требований перед контрольно-надзорными органами. Не хранить взрывоопасные и прочие запрещенные товары и предметы, не загораживать въезды на территорию складов и подходы к эл. щитовым.<br/>
-          Не курить в помещениях складов, офисов и др. помещений. При нарушении данного пункта взимается штраф в размере <span class="ct_data">{{'5000'}}</span> тенге.<br/>
+          Не курить в помещениях складов, офисов и др. помещений. При нарушении данного пункта взимается штраф в размере <span class="ct_data">5000</span> тенге.<br/>
         3.3.2 В случае аварии внутренних тепло, водо- и энергосетей по своей вине принимать все необходимые меры к устранению аварий и их последствий за свой счет.<br/>
         3.3.3 Не производить никаких перестроек в Помещении без письменного разрешения Арендодателя (перепланировку, установку решеток и прочее).<br/>
         3.3.4 Не заключать договора и не вступать в сделки, следствием которых является или может являться какое-либо обременение представленных по договору имущественных прав, в частности, переход их к иному лицу, без письменного разрешения Арендодателя.<br/>
@@ -108,39 +109,5 @@
         6.7. Договор действителен с момента подписания и действует до 31. 12.2022 г.<br/>
         6.8.Договор аренды считается ежегодно продленным или пролонгированным по умолчанию на следующий календарный год, если за месяц до окончания срока действия договора не последует заявлении одной из сторон об отказе настоящего договора или его пересмотра.<br/>
       </div>
-      <div class="contract_footer">
-        <div class="contract_footer_label"></div>
-        <div class="contract_footer_row">
-          <div class="contract_footer_block">
-            <div class="cfb_label">  Арендодатель:</div>
-            <div class="cfb_title">ИП</div>
-            <div class="cfb_value">{{companyName}}</div>
-            <div class="cfb_title">БИН</div>
-            <div class="cfb_value">{{companyBIN}}</div>
-            <div class="cfb_title">Юридический адрес</div>
-            <div class="cfb_value">{{'Нур-Султан, Район Алматы, ул. Амман 6, кв. 26'}}</div>
-            <div class="cfb_title">Фактический адрес</div>
-            <div class="cfb_value">{{companyFactAddress}}</div>
-            <div class="cfb_title">ИИК</div>
-            <div class="cfb_value">{{companyIIK}}</div>
-            <div class="cfb_title">АО</div>
-            <div class="cfb_value">{{companyBankName}}</div>
-            <div class="cfb_title">Телефон</div>
-            <div class="cfb_value">{{companyPhone}}</div>
-          </div>
-          <div class="contract_footer_block">
-            <div class="cfb_label">Арендатор:</div>
-            <div class="cfb_title">ФИО</div>
-            <div class="cfb_value">{{customerName}}</div>
-            <div class="cfb_title">ИИН </div>
-            <div class="cfb_value">{{customerIIN}}</div>
-            <div class="cfb_title">№</div>
-            <div class="cfb_value">{{customerPassportNumber}}</div>
-            <div class="cfb_title">Выдано</div>
-            <div class="cfb_value">{{customerPassportDate}}</div>
-            <div class="cfb_title">Телефон</div>
-            <div class="cfb_value">{{customerPhone}}</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      
+    </div>
