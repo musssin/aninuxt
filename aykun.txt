@@ -20,7 +20,7 @@
       {"key":"isETC","key_name":"Другое", "type":"check"}
       ],
       "requireCompanyBlock": false,
-      "requireClientBlock": false
+      "requireClientBlock": true
     }~
     <div id="contract_template_lg" class="contract_template">
       <div class="ct_title_block">
