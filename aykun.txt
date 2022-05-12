@@ -4,16 +4,24 @@
       {"key":"startHour","key_name":"Время", "type":"text"},
       {"key":"endDate","key_name":"Дата выезда", "type":"date"},
       {"key":"endHour","key_name":"Время", "type":"text"},
-      {"key":"street","key_name":"Адрес контейнера", "type":"text"},
-      {"key":"prepayment","key_name":"Размер арендной платы", "type":"text"},
-      {"key":"isCard","key_name":"Оплата картой", "type":"text"},
-      {"key":"isCash","key_name":"Оплата наличными", "type":"text"},
-      {"key":"isNotCash","key_name":"Безналичный расчет", "type":"text"}
+      {"key":"customerFIO","key_name":"ФИО клиента", "type":"text"},
+      {"key":"customerPhone","key_name":"Номер клиента", "type":"text"},
+      {"key":"room","key_name":"Номер комнаты", "type":"text"},
+      {"key":"address","key_name":"Адрес проживания", "type":"text"},
+      {"key":"isCard","key_name":"Оплата картой", "type":"check"},
+      {"key":"isCash","key_name":"Оплата наличными", "type":"check"},
+      {"key":"isCheck","key_name":"Чек", "type":"check"},
+      {"key":"isInvoice","key_name":"Счет фактура", "type":"check"},
+      {"key":"isAct","key_name":"Акт выполненных работ", "type":"check"},
+      {"key":"isTourism","key_name":"Туризм", "type":"check"},
+      {"key":"isStudy","key_name":"Учеба", "type":"check"},
+      {"key":"isTranzit","key_name":"Транзит", "type":"check"},
+      {"key":"isJob","key_name":"Работа", "type":"check"},
+      {"key":"isETC","key_name":"Другое", "type":"check"}
       ],
       "requireCompanyBlock": false,
-      "requireClientBlock": true
+      "requireClientBlock": false
     }~
-<div class="contract_block_item" :class="{ open: true }">
     <div id="contract_template_lg" class="contract_template">
       <div class="ct_title_block">
         <div class="ct_title">РЕГИСТРАЦИОННАЯ КАРТОЧКА ГОСТЯ /GUEST REGISTRATION CARD
@@ -21,41 +29,41 @@
       </div>
 
       <div class="ct_block_flex">
-        <div class="ct_text">Дата заезда / Кіру күні<br/><span class="ct_data">{{startDate + 'г. ' + startHour}}</span><br/>
+        <div class="ct_text">Дата заезда / Кіру күні<br/><span class="ct_data">{{startDate}} г. {{startHour}}</span><br/>
         ФИО/Қонақтың Аты-жөні <br/><span class="ct_data">{{customerFIO}}</span><br/>
         Телефон <br/><span class="ct_data">{{customerPhone}}</span><br/>
         </div>
-        <div class="ct_date">Дата выезда / Шығу күні<br/><span class="ct_data">{{endDate + 'г. ' + endHour}}</span><br/>
-        Комната/Бөлме   <br/><span class="ct_data">{{customerFIO}}</span><br/>
-        Адрес проживания  <br/><span class="ct_data">{{customerPhone}}</span><br/>
+        <div class="ct_date">Дата выезда / Шығу күні<br/><span class="ct_data">{{endDate}}г. '{{endHour}}</span><br/>
+        Комната/Бөлме   <br/><span class="ct_data">{{room}}</span><br/>
+        Адрес проживания  <br/><span class="ct_data">{{address}}</span><br/>
         </div>
       </div>
 
       <div class="ct_article mb_8">
         <div class="ct_article">
          Форма оплаты / Төлеу әдісі<br>
-         <div class="row">
-         <q-checkbox label="Кредитная карта/Кредит картасы" v-model="isCard" disable/><br/>
-        <q-checkbox label="Наличный расчет/Қолма-қол" v-model="isCash" disable/><br/>
-        <q-checkbox label="Безналичный расчет / Ақшасыз төлем" v-model="isNotCash" disable /><br/>
-         </div>
+         <div class="row" >
+         <input type="checkbox" style="" id="scales" name="ch1" checke{{isCardCheck}} disabled> <label for="ch1"> Кредитная карта/Кредит картасы</label><br>
+         <input type="checkbox" style="margin-left:5%" id="scales" name="ch2" checke{{isCashCheck}} disabled> <label for="ch2"> Наличный расчет/Қолма-қол</label><br>
+         <input type="checkbox" style="margin-left:5%" id="scales" name="ch3" checke{{isNotCashCheck}} disabled> <label for="ch3"> Безналичный расчет / Ақшасыз төлем</label><br>
+         </div><br/>
          Документы, необходимые при выезде / Шығу кезінде керекті құжаттар<br>
          <div class="row">
-         <q-checkbox label="Чек " v-model="isCheck" disable/><br/>
-        <q-checkbox label="Счет-фактура " v-model="isInvoice" disable/><br/>
-        <q-checkbox label="Акт выполненных работ / Орындалған жұмыстар актісі" v-model="isAct" disable /><br/>
-         </div>
+         <input type="checkbox"  id="scales" name="ch4" checke{{isCheckCheck}} disabled> <label for="ch4"> Чек</label><br>
+         <input type="checkbox" style="margin-left:5%" id="scales" name="ch5" checke{{isInvoiceCheck}} disabled> <label for="ch5"> Счет-фактура</label><br>
+         <input type="checkbox" style="margin-left:5%" id="scales" name="ch6" checke{{isActCheck}} disabled> <label for="ch6"> Акт выполненных работ / Орындалған жұмыстар актісі</label><br>
+         </div><br/>
          Цель приезда/ Келу мақсаты<br>
          <div class="row">
-         <q-checkbox label="Туризм" v-model="isTourism" disable/><br/>
-        <q-checkbox label="Учеба/Оқу" v-model="isStudy" disable/><br/>
-        <q-checkbox label="Транзит" v-model="isTransit" disable /><br/>
-         <q-checkbox label="Туризм" v-model="isTourism" disable/><br/>
-        <q-checkbox label="Работа/ Жұмыс" v-model="isJob" disable/><br/>
-        <q-checkbox label="Другое/ Басқа" v-model="isETC" disable /><br/>
+         <input type="checkbox"  id="scales" name="ch7" checke{{isTourismCheck}} disabled> <label for="ch7"> Туризм</label><br>
+         <input type="checkbox" style="margin-left:5%" id="scales" name="ch8" checke{{isStudyCheck}} disabled> <label for="ch8"> Учеба/Оқу</label><br>
+         <input type="checkbox" style="margin-left:5%" id="scales" name="ch9" checke{{isTranzitCheck}} disabled> <label for="ch9"> Транзит</label><br>
+         <input type="checkbox" style="margin-left:5%" id="scales" name="ch10" checke{{isJobCheck}} disabled> <label for="ch10"> Работа/ Жұмыс</label><br>
+         <input type="checkbox" style="margin-left:5%" id="scales" name="ch11" checke{{isETCCheck}} disabled> <label for="ch11"> Другое/ Басқа</label><br>
          </div>
         </div>
       </div>
+      <br/>
       <div class="ct_article">
         <table>
           <tr>
@@ -89,4 +97,3 @@
         </table>
         </div>
       </div>
-    </div>
