@@ -64,9 +64,9 @@
             <div class="cfb_title">ИИН/БИН</div>
             <div class="cfb_value">{{companyBIN}}</div>
             <div class="cfb_title">АО БАНКА</div>
-            <div class="cfb_value">{{companyBankName}}</div>
+            <div class="cfb_value">АО «ForteBank»</div>
             <div class="cfb_title">БИК</div>
-            <div class="cfb_value">{{companyBIK}}</div>
+            <div class="cfb_value">IRTYKZKA</div>
             <div class="cfb_title">Телефон</div>
             <div class="cfb_value">{{companyPhone}}</div>
             <div class="cfb_title">Директор</div>
