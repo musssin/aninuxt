@@ -76,8 +76,6 @@
             <div class="cfb_label">Клиент</div>
 	    <div class="cfb_title">Компания</div>
             <div class="cfb_value">{{clientName}}</div>
-            <div class="cfb_title">Юридический адрес</div>
-            <div class="cfb_value">{{clientFizAddress}}</div>
             <div class="cfb_title">БИН </div>
             <div class="cfb_value">{{clientIIN}}</div>
             <div class="cfb_title">Банк </div>
