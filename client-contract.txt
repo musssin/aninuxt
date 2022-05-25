@@ -77,15 +77,13 @@
 	    <div class="cfb_title">Компания</div>
             <div class="cfb_value">{{clientName}}</div>
             <div class="cfb_title">Юридический адрес</div>
-            <div class="cfb_value">{{clientAddress}}</div>
+            <div class="cfb_value">{{clientFizAddress}}</div>
             <div class="cfb_title">БИН </div>
             <div class="cfb_value">{{clientIIN}}</div>
             <div class="cfb_title">Банк </div>
             <div class="cfb_value">{{clientPassportNumber}}</div>
             <div class="cfb_title">ИИК </div>
             <div class="cfb_value">{{clientIIK}}</div>
-            <div class="cfb_title">БИК </div>
-            <div class="cfb_value">{{clientBIK}}</div>
             <div class="cfb_title">Телефон</div>
             <div class="cfb_value">{{clientPhone}}</div>
 	    <div class="cfb_title">Директор</div>
