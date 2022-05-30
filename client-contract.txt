@@ -8,7 +8,7 @@
     }~
     <div id="contract_template_lg" class="contract_template">
       <div class="ct_title_block">
-        <div class="ct_title">ДОГОВОР № {{numberDeal ? numberDeal : 'XXX'}}<br/>на оказание услуг <br/></div>
+        <div class="ct_title">ДОГОВОР № {{numberDeal}}<br/>на оказание услуг <br/></div>
       </div>
 
       <!-- <div class="ct_block_flex">
@@ -19,10 +19,10 @@
       </div> -->
        <div class="ct_block_flex">
         <div class="ct_text">г. Нур Султан</div>
-        <div class="ct_date">{{ new Date(currentDate).toLocaleDateString() === 'Invalid Date' ? currentDate : new Date(currentDate).toLocaleDateString() }}</div>
+        <div class="ct_date">{{currentDate}}</div>
       </div>
       <div class="ct_article mb_8">
-Товарищество с ограниченной ответственностью «DauInvest», зарегистрированное в соответствии с законодательством Республики Казахстан, в лице Директора Усербаевой Шолпан Муратбековны, действующего на основании Устава, именуемое в дальнейшем «Оператор», с одной стороны, и {{companyName?companyName : '______'}} зарегистрированное в соответствии с законодательством Республики Казахстан, в лице{{customerName?customerName : '______'}} действующего на основании Устава, именуемое в дальнейшем «Клиент», с другой стороны,далее совместно именуемые «Стороны», а по отдельности «Сторона», или как указано выше, заключили настоящий Договор №{{numberDeal ? numberDeal : 'XXX'}} на оказание услуг (далее - Договор) о нижеследующем:<br/>
+Товарищество с ограниченной ответственностью «DauInvest», зарегистрированное в соответствии с законодательством Республики Казахстан, в лице Директора Усербаевой Шолпан Муратбековны, действующего на основании Устава, именуемое в дальнейшем «Оператор», с одной стороны, и {{companyName}} зарегистрированное в соответствии с законодательством Республики Казахстан, в лице {{customerName}} действующего на основании Устава, именуемое в дальнейшем «Клиент», с другой стороны,далее совместно именуемые «Стороны», а по отдельности «Сторона», или как указано выше, заключили настоящий Договор № {{numberDeal}} на оказание услуг (далее - Договор) о нижеследующем:<br/>
 
 <div class="ct_article">
         <span class="ct_article_b"><center>ПОНЯТИЯ, ИСПОЛЬЗУЕМЫЕ В ДОГОВОРЕ</center></span>
@@ -226,7 +226,7 @@ b) при направлении заказным письмом – датой,
 
       <div class="contract_template">
       <div class="ct_block_flex">
-        <div class="ct_text">Приложение №1 к Договору на оказание услуг №{{numberDeal ? numberDeal : 'XXX'}} от «{{ new Date(currentDate).toLocaleDateString() === 'Invalid Date' ? currentDate : new Date(currentDate).toLocaleDateString() }}»
+        <div class="ct_text">Приложение №1 к Договору на оказание услуг № {{numberDeal}} от «{{currentDate}}»
         </div>
       </div>
       <div class="ct_title_block">
@@ -494,16 +494,16 @@ b) при направлении заказным письмом – датой,
 
       <div class="contract_template">
       <div class="ct_block_flex">
-        <div class="ct_text">Приложение №4 к Договору на оказание услуг № {{numberDeal ? numberDeal : 'XXX'}} от «{{ new Date(currentDate).toLocaleDateString() === 'Invalid Date' ? currentDate : new Date(currentDate).toLocaleDateString() }}»
+        <div class="ct_text">Приложение №4 к Договору на оказание услуг № {{numberDeal}} от «{{currentDate}}»
         </div>
       </div>
        <div class="ct_block_flex">
         <div class="ct_text">г. Нур Султан</div>
-        <div class="ct_date">{{ new Date(currentDate).toLocaleDateString() === 'Invalid Date' ? currentDate : new Date(currentDate).toLocaleDateString() }}</div>
+        <div class="ct_date">{{currentDate}}</div>
       </div>
       <div class="ct_article ">
         <strong><center>Заявка на подключение к Системе TrustContract</center></strong><br/>
-{{companyName?companyName : '______'}}, зарегистрированное в соответствии с законодательством Республики Казахстан, в лице {{customerName?customerName : '______'}}, действующего на основании Устава, именуемое «Клиент» в данном Договоре, настоящим подтверждает следующую стоимость Услуг:<br/>
+{{clientName}}, зарегистрированное в соответствии с законодательством Республики Казахстан, в лице {{clientDirectorFIO}}, действующего на основании Устава, именуемое «Клиент» в данном Договоре, настоящим подтверждает следующую стоимость Услуг:<br/>
      1. Индивидуальная интеграция системы:
       <table>
   <tr>
