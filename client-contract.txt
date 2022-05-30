@@ -297,7 +297,7 @@ b) при направлении заказным письмом – датой,
 
       <div class="contract_template">
       <div class="ct_block_flex">
-        <div class="ct_text">Приложение №2 к Договору на оказание услуг № {{numberDeal ? numberDeal : 'XXX'}} от «{{ new Date(currentDate).toLocaleDateString() === 'Invalid Date' ? currentDate : new Date(currentDate).toLocaleDateString() }}»
+        <div class="ct_text">Приложение №2 к Договору на оказание услуг № {{numberDeal}} от «{{currentDate}}»
         </div>
       </div>
       <div class="ct_title_block">
@@ -376,7 +376,7 @@ b) при направлении заказным письмом – датой,
 
       <div class="contract_template">
       <div class="ct_block_flex">
-        <div class="ct_text">Приложение №3 к Договору на оказание услуг № {{numberDeal ? numberDeal : 'XXX'}} от «{{ new Date(currentDate).toLocaleDateString() === 'Invalid Date' ? currentDate : new Date(currentDate).toLocaleDateString() }}»
+        <div class="ct_text">Приложение №3 к Договору на оказание услуг № {{numberDeal ? numberDeal : 'XXX'}} от «{{currentDate}}»
         </div>
       </div>
       <div class="ct_article ">
